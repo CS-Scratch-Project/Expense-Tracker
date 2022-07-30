@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+secrets.js
+package-lock.json
+build/*
+npm-debug.log
+TestJS.js
