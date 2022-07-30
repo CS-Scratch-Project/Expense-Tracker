@@ -4,6 +4,9 @@ import CreateNewEvent from "../components/CreateNewEvent.jsx"
 
 
 class CreateNewEventContainer extends Component {
+  constructor(props) {
+    super(props)
+  }
   render(){
     return(
       <div className="eventCreatorContainer">
