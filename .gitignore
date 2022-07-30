@@ -4,4 +4,3 @@ secrets.js
 package-lock.json
 build/*
 npm-debug.log
-TestJS.js
