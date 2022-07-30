@@ -5,7 +5,7 @@ import TransactionCreater from "./CreateNewTransaction.jsx";
 
 const Event = () => {
 
-
+//{}
   return (
     <div className="event">
       <h4>This is an event</h4>

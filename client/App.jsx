@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar.jsx"
 import CreateNewEventContainer from "./containers/CreateNewEventContainer.jsx"
 import PendingTransactionsContainer from "./containers/PendingTransactionsContainer.jsx"
 
+
 class App extends Component {
   render(){
     return(
