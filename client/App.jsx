@@ -1,11 +1,17 @@
 import { ReactDOM } from "react";
 import React, { Component } from "react";
+import Navbar from "./components/Navbar.jsx"
+import CreateNewEventContainer from "./containers/CreateNewEventContainer.jsx"
+import PendingTransactionsContainer from "./containers/PendingTransactionsContainer.jsx"
 
 class App extends Component {
   render(){
     return(
-      <div>
-        <h1>HOW YOU DOIN</h1>
+      <div className="app">
+        <Navbar/>
+        <h1>Expense Tracker</h1>
+        <CreateNewEventContainer />
+        <PendingTransactionsContainer />
       </div>
     );
   }

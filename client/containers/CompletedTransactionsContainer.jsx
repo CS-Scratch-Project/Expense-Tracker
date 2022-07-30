@@ -2,11 +2,11 @@ import { ReactDOM } from "react";
 import React, { Component } from "react";
 import Event from "../components/Event.jsx"
 
-class PendingTransactions extends Component {
+class CompletedTransactions extends Component {
   render(){
     return(
-      <div className="pendingTransactions">
-        <h1>Pending Transactions</h1>
+      <div className="CompletedTransactions">
+        <h1>Completed Transactions</h1>
         <Event />
         <Event />
       </div>
@@ -14,4 +14,4 @@ class PendingTransactions extends Component {
   }
 }
 
-export default PendingTransactions;
+export default CompletedTransactions;

@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+body {
+  background-color: rgba(227, 227, 227, 0.671);
+}
+
+h1, h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.navlist {
+  display: flex;
+  list-style: none;
+  justify-content: flex-start;
+  background-color: rgba(141, 140, 140, 0.671);
+  li {
+    margin: 10px;
+    margin-left: 15px;
+  }
+}
+
+.pendingTransactions {
+  background-color: white;
+}
+
+.eventCreatorContainer {
+  // display: flex;
+  // justify-content: center;
+  display: inline-block;
+  background-color: white;
+  vertical-align: top;
+  // margin: auto;
+}
+
+.eventCreator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event {
+  background-color: rgba(141, 140, 140, 0.671);
+}
+
+.transaction {
+  background-color: lightgrey;
+}
