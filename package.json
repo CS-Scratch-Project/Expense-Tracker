@@ -8,7 +8,8 @@
     "start": "nodemon ./server/server",
     "build": "NODE_ENV=production webpack",
     "watch": "webpack --watch",
-    "dev": "concurrently \"NODE_ENV=development webpack serve --hot --open\" \"NODE_ENV=development nodemon server/server.js \""
+    "dev": "concurrently \"NODE_ENV=development webpack serve --hot --open\" \"NODE_ENV=development nodemon server/server.js \"",
+    "develop": "npm run dev & node server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "@reduxjs/toolkit": "^1.8.3",
     "html-webpack-plugin": "^5.5.0",
     "i": "^0.3.7",
+    "mongoose": "^6.5.0",
     "nodemon": "^2.0.19",
     "npm": "^8.15.1",
     "react": "^17.0.2",

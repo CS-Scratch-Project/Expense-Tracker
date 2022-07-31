@@ -11,7 +11,6 @@ class App extends Component {
       <div className="app">
         <Navbar/>
         <h1>Expense Tracker</h1>
-        <CreateNewEventContainer />
         <PendingTransactionsContainer />
       </div>
     );

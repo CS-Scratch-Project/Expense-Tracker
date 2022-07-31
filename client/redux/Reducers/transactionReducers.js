@@ -63,6 +63,12 @@ const transactionsReducer = (state = defaultState, action) => {
         ...state,
       };
     }
+    case types.createTransaction: {
+      //do some stuff
+      return {
+        ...state,
+      };
+    }
     case types.editEvent: {
       //do some stuff
       return {
@@ -76,6 +82,12 @@ const transactionsReducer = (state = defaultState, action) => {
       };
     }
     case types.completeEvent: {
+        //do some stuff
+        return {
+          ...state,
+      };
+    };
+    case types.createEvent: {
         //do some stuff
         return {
           ...state,
