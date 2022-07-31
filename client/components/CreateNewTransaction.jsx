@@ -1,5 +1,7 @@
 import { ReactDOM } from "react";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 
 const TransactionCreater = () => {
 // onClick create new transaction 
@@ -69,7 +71,9 @@ const TransactionCreater = () => {
           </input>
           <input id="people" placeholder="name of people">
           </input>
+          <Link to="/">
           <button id="submitEvent" onClick={newTransaction}>Create</button>
+          </Link>
         </form>
       </div>
 
