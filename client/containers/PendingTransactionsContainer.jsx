@@ -9,7 +9,7 @@ class PendingTransactions extends Component {
   render(){
     return(
       <div className="pendingTransactions">
-        <h1>Pending Transactions</h1>
+        <h2>Pending Transactions</h2>
         <Event />
         <Event />
       </div>

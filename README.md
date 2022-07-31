@@ -3,7 +3,7 @@
 EXAMPLE:
 initialState = [
 {
-eventDd: 001,
+eventId: 001,
 eventName: 'Coachella',
 transactions: [
 {
@@ -25,7 +25,7 @@ completed: false,
 ],
 },
 {
-eventDd: 002,
+eventId: 002,
 eventName: 'Bonaroo',
 transactions: [
 {
