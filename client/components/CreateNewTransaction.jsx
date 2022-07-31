@@ -7,13 +7,13 @@ const TransactionCreater = () => {
    function newTransaction(){
     // grabbing the text inputted to the form
 
-    const name = document.getElementById('name')
-    const date = document.getElementById('date')
-    const amount = document.getElementById('amount')
-    const entry = document.getElementById('entry')
-    const transactionComplete = document.getElementById('transactionComplete')
-    const people = document.getElementById('people')
-    const eventName_id = document.getElementById('eventName_id')
+    const name = document.getElementById('name').value
+    const date = document.getElementById('date').value
+    const amount = document.getElementById('amount').value
+    const entry = document.getElementById('entry').value
+    const transactionComplete = document.getElementById('transactionComplete').value
+    const people = document.getElementById('people').value
+    const eventName_id = document.getElementById('eventName_id').value
 
     const body = {
       name,
@@ -44,12 +44,13 @@ const TransactionCreater = () => {
         console.log('something went wrong with the Create New Transaction post request')
       }
     }
+    postEvent()
   }
-  newTransaction()
+  
 
 
   
-
+ 
   return (
     <div className="transactionCreater">
       <div>
