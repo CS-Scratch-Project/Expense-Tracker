@@ -6,7 +6,7 @@ const eventController = {};
 
 //this is test function for debugging.
 eventController.test = (req, res, next) => {
-  console.log('testing the middleware');
+  console.log('testing the eventController middleware');
   return next();
 };
 
