@@ -16,7 +16,8 @@ const Transaction = () => {
 
   
   const deleteTransaction = async () => {
-    console.log('deleteTransaction function fired')
+    console.log('deleteTransaction function fired');
+    console.log('hello');
     const settings = {
       method: 'DELETE',
       headers: {
