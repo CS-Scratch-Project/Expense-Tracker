@@ -4,12 +4,19 @@ const { Event, Transaction } = require('../models/model');
 // create an eventController object where we can add our methods
 const eventController = {};
 
+//this is test function for debugging.
+eventController.test = (req, res, next) => {
+  console.log('testing the middleware');
+  return next();
+};
+
 // creating middelware to get information from out mongodb.  The methods on mongodb are aysynchronous, so we need async/await
 eventController.showEvents = async (req, res, next) => {
   try {
     // we need to find all the events in our db schema with .find()
     const allEvents = await Event.find({});
-    console.log('this is in allEvents', allEvents);
+    //console.log('this is in allEvents', allEvents);
+    console.log('showevents middleware');
     // send this information back to the front end where it gets .json'd
     res.locals.allEvents = allEvents;
     return next();

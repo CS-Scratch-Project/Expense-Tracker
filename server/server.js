@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // used to take us to our routers with endpoint, api
 app.use('/api', apiRouter);
-
+console.log('testing server');
 // establing our 404, can't find requested webpage
 app.use('/*', (req, res) =>
   res.status(404).send('This is not the page you are looking for')
