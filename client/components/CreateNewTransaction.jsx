@@ -55,6 +55,7 @@ const TransactionCreater = () => {
  
   return (
     <div className="transactionCreater">
+      <h1>New Transaction Creator</h1>
       <div>
         <form className="eventInputForm">
           <input id="eventName" placeholder="new transaction name">
