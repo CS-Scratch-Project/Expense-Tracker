@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color:rgb(246, 135, 153)
+  color:rgb(243, 90, 116);
 }
 body {
   background-color: rgba(227, 227, 227, 0.671);
@@ -16,7 +16,7 @@ h1, h3 {
   display: flex;
   list-style: none;
   justify-content: flex-start;
-  background-color: rgba(141, 140, 140, 0.671);
+  background-color: rgba(124, 121, 121, 0.671);
   li {
     margin: 10px;
     margin-left: 15px;
@@ -43,9 +43,15 @@ h1, h3 {
 }
 
 .event {
-  background-color: rgba(141, 140, 140, 0.671);
+  background-color: rgba(71, 71, 71, 0.671);
 }
 
 .transaction {
   background-color: lightgrey;
+}
+
+.transactionBox {
+  background-color:rgba(39, 37, 37, 0.671);
+ 
+
 }
