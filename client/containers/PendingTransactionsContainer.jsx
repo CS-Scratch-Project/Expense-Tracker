@@ -52,10 +52,12 @@ const PendingTransactions = () => {
   const eventList = events.map((eventObj, i) => {
     //console.log(eventObj.eventName);
     return (
-      <Event key={eventObj.eventName} eventDescription={eventObj.eventDescription } eventName = {eventObj.eventName}/>
+      <Event key={eventObj.eventName}
+        eventDescription={eventObj.eventDescription}
+        eventName={eventObj.eventName} />
     )
   })
-    
+  eventList.reverse()
   return (
     <div className="pendingTransactions">
       
