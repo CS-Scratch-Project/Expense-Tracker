@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const TransactionCreater = () => {
 // onClick create new transaction 
-console.log('hello')
    function newTransaction(){
     // grabbing the text inputted to the form
 
@@ -38,7 +37,7 @@ console.log('hello')
       }
       try {
         // waiting for katie to make end point
-        const response = await fetch('', settings)
+        const response = await fetch('/api/addtransact', settings)
         const data = await response.json()
         //this is a post request to make a new transaction event, so we dont need to 
         //do anything with the response
