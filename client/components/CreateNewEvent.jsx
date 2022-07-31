@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const CreateNewEvent = () => {
 /*
 this is the onclick function
-*/console.log('this is the first line of createNewEvent');
+*///console.log('this is the first line of createNewEvent');
   function makeEvent() {
     //first grab the text inputted into the form
     const eventName = document.getElementById('eventName').value
@@ -17,8 +17,8 @@ this is the onclick function
     }
     //this is the async function that will make the post request to 
     //send the new event to the db
-    console.log(body)
-    console.log('makeEvent function')
+    //console.log(body)
+    //console.log('makeEvent function')
     const postEvent = async () => {
       const settings = {
         method: 'POST',
@@ -28,11 +28,11 @@ this is the onclick function
         body: JSON.stringify(body)
       }
       try {
-        console.log('this is before the fetch request');
+        //console.log('this is before the fetch request');
         const response = await fetch('/api/addevent', settings)
-        console.log('this is after the fetch request');
+        //console.log('this is after the fetch request');
         const data = await response.json()
-        console.log(data)
+        //console.log(data)
         //this is a post request to make a new event, so we dont need to 
         //do anything with the response
       } catch (err) { 
