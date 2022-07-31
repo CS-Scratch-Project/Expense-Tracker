@@ -4,7 +4,7 @@ import React, { Component } from "react";
 const TransactionCreater = () => {
 // onClick create new transaction 
 
-  // function newTransaction(){
+   function newTransaction(){
     // grabbing the text inputted to the form
 
     const name = document.getElementById('name')
@@ -24,10 +24,31 @@ const TransactionCreater = () => {
       people,
       eventName_id
     }
+    //asyc function to make post request
+    console.log('make new transactions function')
+    const postEvent = async () => {
+      const settings = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/JSON'
+        },
+        body: JSON.stringify(body)
+      }
+      try {
 
-
-
+        const response = await fetch('', settings)
+        const data = await response.json()
+        //this is a post request to make a new transaction event, so we dont need to 
+        //do anything with the response
+      } catch (err) { 
+        console.log('something went wrong with the Create New Transaction post request')
+      }
+    }
   }
+  newTransaction()
+
+
+  
 
   return (
     <div className="transactionCreater">
