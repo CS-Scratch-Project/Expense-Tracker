@@ -77,7 +77,6 @@ const TransactionCreater = () => {
           </Link>
         </form>
       </div>
-
     </div>
   )
 }
