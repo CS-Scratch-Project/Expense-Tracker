@@ -6,7 +6,7 @@ const eventController = {};
 
 //this is test function for debugging.
 eventController.test = (req, res, next) => {
-  console.log('testing the middleware');
+  console.log('testing the eventController middleware');
   return next();
 };
 
@@ -68,6 +68,14 @@ eventController.deleteEvent = async (req, res, next) => {
     // we are deleting the event in the db by sending the eventName object
     const deleteEvent = await Event.deleteOne({ eventName: eventName });
     console.log('this is after we get deleteEvent from db', deleteEvent);
+    //deleting all transactions that were associated with the above event
+    const deleteTransactions = await Transaction.deleteMany({
+      eventName_id: eventName,
+    });
+    console.log(
+      'this is after we delete the associated transactions',
+      deleteTransactions
+    );
     return next();
   } catch (err) {
     return next({
