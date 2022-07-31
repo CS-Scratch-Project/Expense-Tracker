@@ -35,7 +35,7 @@ const TransactionCreater = () => {
         body: JSON.stringify(body)
       }
       try {
-
+        // waiting for katie to make end point
         const response = await fetch('', settings)
         const data = await response.json()
         //this is a post request to make a new transaction event, so we dont need to 
