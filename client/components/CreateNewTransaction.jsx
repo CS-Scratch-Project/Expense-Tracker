@@ -18,7 +18,6 @@ const TransactionCreater = () => {
           <button id="submitEvent">Create</button>
         </form>
       </div>
-
     </div>
   )
 }

@@ -13,12 +13,13 @@ import { useEffect } from "react";
 const PendingTransactions = () => {
   //https://www.youtube.com/watch?v=4pO-HcG2igk
   //this is the useState hook, it uses array destructuring
-  const [initialState, setState] = useState([])
-  //initialState is whatever is first passed into useState
-  //setting the initialState to an empty array
-  //then we can use the setState function to update the state
-  //then when we call setState, it will fill the array with
+  const [events, setEvents] = useState([])
+  //Events is whatever is first passed into useState
+  //setting the Events to an empty array
+  //then we can use the setEvents function to update the state
+  //then when we call setEvents, it will fill the array with
   //whatever we pass in.
+  const [transactions, setTransactions] = useState([])
   //this is a useEffect hook:
   useEffect(() => {
   //useEffect is meant for side effects i.e. fetch requests
@@ -26,28 +27,41 @@ const PendingTransactions = () => {
       const getData = async () =>  {
         try {
           //This endpoint has not been set yet
-          const response = await fetch('/api/Favs')
+          const response = await fetch('/api')
           //once Katie sets up the backend ^^^ this endpoint will need
           //to be updated
           const data = await response.json()
           //console.log(data)
-          setState(data)
-          //console.log(state)
+          //console.log(data)
+          setEvents(data)
+          //wheneverwe use setEvents to change the state,
+          //that will trigger React to re-render the component
         } catch (err) {
           console.log(`something went wrong: ${err}`)
         }
       }
-      getData()
-    }, [])
-    //initialState should now contain all of the events 
+    getData()
+    //window.location.reload()  re-render the page
+  }, [])
+  //console.log(events)
+    //Events should now contain all of the events 
     //and transactions from our database
-    //this useState hook can be used as many times as we want to 
+    //this useState hook can be used as many times as we want to
     //change the state
+    
+  const eventList = events.map((eventObj, i) => {
+    //console.log(eventObj.eventName);
+    return (
+      <Event key={eventObj.eventName} eventDescription={eventObj.eventDescription } eventName = {eventObj.eventName}/>
+    )
+  })
+    
   return (
     <div className="pendingTransactions">
+      
       <h2>Pending Transactions</h2>
       {/* this is where all the events will render */}
-      <Event />
+      { eventList }
       {/* each transaction will in turn render within the event */}
     </div>
   )
