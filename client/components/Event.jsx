@@ -1,10 +1,9 @@
-import { ReactDOM } from "react";
-import React, { Component } from "react";
-import Transaction from "./Transaction.jsx"
-import TransactionCreater from "./CreateNewTransaction.jsx";
+import { ReactDOM } from 'react';
+import React, { Component } from 'react';
+import Transaction from './Transaction.jsx';
+import TransactionCreater from './CreateNewTransaction.jsx';
 
 // const Event = () => {
-
 
 // //{}
 //   return (
@@ -19,25 +18,45 @@ import TransactionCreater from "./CreateNewTransaction.jsx";
 
 class Event extends Component {
   constructor(props) {
-    super(props)
-    
+    super(props);
   }
 
   //const transactionList = []
 
   render() {
-    // console.log(this.props.eventName);
+    // console.log(this.props.eventSpecificTransactions);
+    if(this.props.eventSpecificTransactions[0]){
+    // console.log(this.props.eventSpecificTransactions)
+    const transactionList = this.props.eventSpecificTransactions.map(
+      (transactionObj, i) => {
+        console.log(transactionObj);
+          return (
+            <Transaction
+              name={transactionObj.name}
+              date={transactionObj.date}
+              amount={transactionObj.amount}
+              entry={transactionObj.entry}
+              transactionComplete={transactionObj.transactionComplete}
+              people={transactionObj.people}
+              eventName_id={transactionObj.eventName_id}
+            />
+          );
+
+      }
+    );
+    }
     // console.log(this.props.eventDescription);
     return (
-      <div className="event">
+      <div className='event'>
         <h4>{this.props.eventName}</h4>
         <p>{this.props.eventDescription}</p>
         <TransactionCreater />
         <Transaction />
         <Transaction />
+        {/* {transactionList} */}
       </div>
-    )
+    );
   }
 }
 
-export default Event
+export default Event;

@@ -2,7 +2,7 @@ import { ReactDOM } from "react";
 import React, { Component } from "react";
 
 
-const Transaction = () => {
+const Transaction = (props) => {
 
   /* we can either perform the deletes here or in reducers - 
     function = () => {
