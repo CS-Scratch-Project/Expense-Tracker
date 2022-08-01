@@ -7,7 +7,6 @@ const TransactionCreater = () => {
 // onClick create new transaction 
    function newTransaction(){
     // grabbing the text inputted to the form
-
     const name = document.getElementById('name').value
     const date = document.getElementById('date').value
     const amount = document.getElementById('amount').value
@@ -25,6 +24,7 @@ const TransactionCreater = () => {
       people,
       eventName_id
     }
+    console.log(body)
     //asyc function to make post request
     console.log('make new transactions function')
     const postEvent = async () => {
@@ -37,7 +37,7 @@ const TransactionCreater = () => {
       }
       try {
         // waiting for katie to make end point
-        const response = await fetch('/api/addtransact', settings)
+        const response = await fetch('/moreApis/addtransact', settings)
         const data = await response.json()
         //this is a post request to make a new transaction event, so we dont need to 
         //do anything with the response
@@ -45,6 +45,7 @@ const TransactionCreater = () => {
         console.log('something went wrong with the Create New Transaction post request')
       }
     }
+    console.log(body)
     postEvent()
   }
   
@@ -57,19 +58,19 @@ const TransactionCreater = () => {
       <h1>New Transaction Creator</h1>
       <div>
         <form className="eventInputForm">
-          <input id="eventName" placeholder="new transaction name">
+          <input id="eventName_id" placeholder="Event name">
           </input>
-          <input id="name" placeholder="name ">
+          <input id="name" placeholder="item name ">
           </input>
           <input id="date" placeholder="day of Event">
           </input>
           <input id="amount" placeholder="amount">
           </input>
-          <input id="entry" placeholder="cost">
+          <input id="entry" placeholder="entry">
           </input>
           <input id="transactionComplete" placeholder="completed transaction">
           </input>
-          <input id="people" placeholder="name of people">
+          <input id="people" placeholder="name of peoples">
           </input>
           <Link to="/">
           <button id="submitEvent" onClick={newTransaction}>Create</button>
