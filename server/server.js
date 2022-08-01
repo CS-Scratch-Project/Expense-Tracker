@@ -9,7 +9,7 @@ const app = express();
 
 // path to take us to the router
 const apiRouter = require('./routes/api.js');
-const moreApis = require('./routes/moreapis.js');
+const moreApis = require('./routes/moreApis.js');
 
 // the port we are listening to down at the bottom
 const PORT = 3000;

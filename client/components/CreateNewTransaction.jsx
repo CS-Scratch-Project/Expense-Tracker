@@ -5,29 +5,34 @@ import { Link } from "react-router-dom";
 
 const TransactionCreater = () => {
 // onClick create new transaction 
-// console.log('hello')
    function newTransaction(){
     // grabbing the text inputted to the form
-
     const name = document.getElementById('name').value
+    console.log(name)
+    // const newName = document.getElementById('name')
+    // console.log(newName)
     const date = document.getElementById('date').value
+    console.log(date)
     const amount = document.getElementById('amount').value
+    console.log(amount)
     const entry = document.getElementById('entry').value
-    const transactionComplete = document.getElementById('transactionComplete').value
+    console.log(entry)
     const people = document.getElementById('people').value
-    const eventName_id = document.getElementById('eventName_id').value
-
+    console.log(people)
+    // const eventName_id = document.getElementById('eventName_id').value
+    const eventName_id = 'rubber duckies'
     const body = {
       name,
       date,
       amount,
       entry,
-      transactionComplete,
+      transactionComplete: false,
       people,
       eventName_id
     }
+    // console.log(body)
     //asyc function to make post request
-    console.log('make new transactions function')
+    console.log('make new transactions')
     const postEvent = async () => {
       const settings = {
         method: 'POST',
@@ -38,7 +43,7 @@ const TransactionCreater = () => {
       }
       try {
         // waiting for katie to make end point
-        const response = await fetch('', settings)
+        const response = await fetch('/moreApis/addtransact', settings)
         const data = await response.json()
         //this is a post request to make a new transaction event, so we dont need to 
         //do anything with the response
@@ -46,6 +51,7 @@ const TransactionCreater = () => {
         console.log('something went wrong with the Create New Transaction post request')
       }
     }
+    // console.log(body)
     postEvent()
   }
   
@@ -58,19 +64,17 @@ const TransactionCreater = () => {
       <h1>New Transaction Creator</h1>
       <div>
         <form className="eventInputForm">
-          <input id="eventName" placeholder="new transaction name">
-          </input>
-          <input id="name" placeholder="name ">
+          {/* <input id="eventName_id" placeholder="Event name">
+          </input> */}
+          <input id="name" placeholder="item name ">
           </input>
           <input id="date" placeholder="day of Event">
           </input>
           <input id="amount" placeholder="amount">
           </input>
-          <input id="entry" placeholder="cost">
+          <input id="entry" placeholder="entry">
           </input>
-          <input id="transactionComplete" placeholder="completed transaction">
-          </input>
-          <input id="people" placeholder="name of people">
+          <input id="people" placeholder="name of peoples">
           </input>
           <Link to="/">
           <button id="submitEvent" onClick={newTransaction}>Create</button>
