@@ -32,15 +32,6 @@ transactController.showTransacts = async (req, res, next) => {
 // need middleware for post request- to get information from the user and addEvent.  This information gets saved to req.body
 transactController.addTransact = async (req, res, next) => {
   try {
-<<<<<<< HEAD
-    const { name, date, amount, entry, transactionComplete, people, eventName_id } = req.body;
-    // using object destructing.  
-
-    console.log('this is the req.body', req.body);
-    // we are creating an transaction with info from req.body and saving it to transactionMaker.  This info gets sent back to the front
-    const transactionMaker = await Transaction.create({ name, date, amount, entry, transactionComplete, people, eventName_id });
-
-=======
     const {
       name,
       date,
@@ -63,7 +54,6 @@ transactController.addTransact = async (req, res, next) => {
       people,
       eventName_id,
     });
->>>>>>> dev
 
     console.log('this is the addTransact', transactionMaker);
     res.locals.transactionMaker = transactionMaker;
