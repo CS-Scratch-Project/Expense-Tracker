@@ -32,7 +32,7 @@ const PendingTransactions = () => {
           //to be updated
           const data = await response.json()
           //console.log(data)
-          console.log(data)
+          //console.log(data)
           setEvents(data)
           //wheneverwe use setEvents to change the state,
           //that will trigger React to re-render the component
@@ -57,6 +57,7 @@ const PendingTransactions = () => {
         eventName={eventObj.eventName} />
     )
   })
+
   eventList.reverse()
   return (
     <div className="pendingTransactions">

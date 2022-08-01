@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const TransactionCreater = () => {
 // onClick create new transaction 
-console.log('hello')
+// console.log('hello')
    function newTransaction(){
     // grabbing the text inputted to the form
 

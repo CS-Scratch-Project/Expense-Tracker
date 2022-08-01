@@ -22,4 +22,20 @@ moreRouter.post('/addtransact', transactController.addTransact, (req, res) => {
   return res.status(200).json(res.locals.transactionMaker);
 });
 
+moreRouter.delete(
+  '/:name',
+  transactController.deleteTransact,
+  (req, res) => {
+    return res.status(200).json('This transaction has been deleted');
+  }
+);
+
+moreRouter.patch(
+  '/:name',
+  transactController.updateTransact,
+  (req, res) => {
+    return res.status(200).json(res.locals.updateTransact);
+  }
+);
+
 module.exports = moreRouter;

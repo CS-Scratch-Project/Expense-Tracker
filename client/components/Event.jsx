@@ -23,9 +23,11 @@ class Event extends Component {
     
   }
 
+  //const transactionList = []
+
   render() {
-    console.log(this.props.eventName);
-    console.log(this.props.eventDescription);
+    // console.log(this.props.eventName);
+    // console.log(this.props.eventDescription);
     return (
       <div className="event">
         <h4>{this.props.eventName}</h4>
