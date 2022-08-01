@@ -1,9 +1,15 @@
+$primary-color: rgb(209, 224, 255);
+$white: white;
+$secondary-color: rgb(233, 233, 233);
+
 * {
   box-sizing: border-box;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 body {
-  background-color: rgba(188, 188, 188, 0.671);
+  background-color: $secondary-color;
+  margin: 0;
 }
 
 h1, h3 {
@@ -11,10 +17,16 @@ h1, h3 {
   justify-content: center;
 }
 
+h1 {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
 button {
-  background-color: rgba(124, 151, 255, 0.671);
-  border-radius: 10px;
+  background-color: $white;
+  border-radius: 5px;
   margin: 10px;
+  // color: $secondary-color;
 }
 
 input {
@@ -25,23 +37,33 @@ input {
   display: flex;
   list-style: none;
   justify-content: flex-start;
-  background-color: rgba(124, 121, 121, 0.671);
+  background-color: $primary-color;
+  margin-top: 0;
   li {
     margin: 10px;
-    margin-left: 15px;
+    margin-left: 45px;
+  }
+  a {
+    color: black;
+    text-decoration: none;
   }
 }
 
 .pendingTransactions {
   display: flex;
   flex-direction: column;
+  h2 {
+    display: flex;
+    // justify-content: center;
+    margin: 0px 40px;
+  }
 }
 
 .eventCreatorContainer {
   // display: flex;
   // justify-content: center;
   display: inline-block;
-  background-color: white;
+  background-color: $secondary-color;
   vertical-align: top;
   // margin: auto;
 }
@@ -54,10 +76,25 @@ input {
 
 .event {
   background-color: rgba(255, 255, 255, 0.671);
-  margin: 10px;
+  margin: 30px;
   margin-top: 30px;
   border-radius: 20px;
-  border: 2px solid rgb(165, 185, 252);
+  // border: 2px solid rgb(165, 185, 252);
+  .transactTitle {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .addTransact {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .eventName {
+    display: flex;
+    justify-content: center;
+  }
+  p {
+    margin: 0 6%;
+  }
 }
 
 .transaction {
@@ -65,8 +102,24 @@ input {
 }
 
 .transactionBox {
-  background-color:rgba(39, 37, 37, 0.671);
-  margin: 3%;
+  background-color:$primary-color;
+  margin: 3% 6% ;
   border-radius: 10px;
+  border: 1px solid $secondary-color;
+  div, h4 {
+    margin: 10px 30px;
+  }
+}
 
+.transactionCreater {
+  background-color: $secondary-color;
+  margin: 3% 6%;
+  border-radius: 10px;
+  input {
+    margin: 1% 1%;
+  }
+  h3 {
+    padding-top: 2%;
+    padding-left: 2%;
+  }
 }
