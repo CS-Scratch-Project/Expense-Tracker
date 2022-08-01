@@ -59,8 +59,6 @@ const TransactionCreator = (props) => {
       <h1>New Transaction Creator</h1>
       <div>
         <form className="eventInputForm">
-          {/* <input id="eventName_id" placeholder="Event name">
-          </input> */}
           <input id={`name${props.eventName_id}`} placeholder="Transaction name ">
           </input>
           <input type="date" id={`date${props.eventName_id}`}>
