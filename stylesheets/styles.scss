@@ -17,11 +17,16 @@ h1, h3 {
   justify-content: center;
 }
 
+h1 {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
 button {
   background-color: $white;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 10px;
-  font: $primary-color;
+  // color: $secondary-color;
 }
 
 input {
@@ -47,6 +52,11 @@ input {
 .pendingTransactions {
   display: flex;
   flex-direction: column;
+  h2 {
+    display: flex;
+    // justify-content: center;
+    margin: 0px 40px;
+  }
 }
 
 .eventCreatorContainer {
@@ -70,6 +80,21 @@ input {
   margin-top: 30px;
   border-radius: 20px;
   // border: 2px solid rgb(165, 185, 252);
+  .transactTitle {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .addTransact {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .eventName {
+    display: flex;
+    justify-content: center;
+  }
+  p {
+    margin: 0 6%;
+  }
 }
 
 .transaction {
@@ -81,10 +106,20 @@ input {
   margin: 3% 6% ;
   border-radius: 10px;
   border: 1px solid $secondary-color;
-
+  div, h4 {
+    margin: 10px 30px;
+  }
 }
 
 .transactionCreater {
   background-color: $secondary-color;
   margin: 3% 6%;
+  border-radius: 10px;
+  input {
+    margin: 1% 1%;
+  }
+  h3 {
+    padding-top: 2%;
+    padding-left: 2%;
+  }
 }

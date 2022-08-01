@@ -81,7 +81,7 @@ const Transaction = (props) => {
 // console.log('hello')
   return (
     <div className="transactionBox" >
-        <h4>{props.name}</h4>
+        <h4 className="transactTitle">{props.name}</h4>
 
       {/* <div><label htmlFor = 'name'>Name: </label><span> {props.name} </span></div> */}
       <div><label htmlFor = 'date'>Date: </label><span> {props.date} </span></div>

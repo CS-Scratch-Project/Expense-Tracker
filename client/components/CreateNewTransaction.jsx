@@ -55,8 +55,8 @@ const TransactionCreator = (props) => {
   }
   
   return (
-    <div className="transactionCreator">
-      <h1>New Transaction Creator</h1>
+    <div className="transactionCreater">
+      <h3 className="addTransact">Add a transaction</h3>
       <div>
         <form className="eventInputForm">
           <input id={`name${props.eventName_id}`} placeholder="Transaction name ">
@@ -70,7 +70,7 @@ const TransactionCreator = (props) => {
           <input id={`people${props.eventName_id}`} placeholder="Names">
           </input>
           <Link to="/">
-          <button id="submitEvent" onClick={newTransaction}>Create</button>
+          <button className="submitbutton" onClick={newTransaction}>Create</button>
           </Link>
         </form>
       </div>
