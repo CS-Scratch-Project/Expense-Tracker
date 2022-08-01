@@ -3,24 +3,23 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 
-const TransactionCreater = () => {
+const TransactionCreator = (props) => {
 // onClick create new transaction 
    function newTransaction(){
     // grabbing the text inputted to the form
-    const name = document.getElementById('name').value
-    console.log(name)
-    // const newName = document.getElementById('name')
-    // console.log(newName)
-    const date = document.getElementById('date').value
-    console.log(date)
-    const amount = document.getElementById('amount').value
-    console.log(amount)
-    const entry = document.getElementById('entry').value
-    console.log(entry)
-    const people = document.getElementById('people').value
-    console.log(people)
-    // const eventName_id = document.getElementById('eventName_id').value
-    const eventName_id = 'rubber duckies'
+    // console.log(props.uniqueKey)
+    const name = document.getElementById(`name${props.eventName_id}`).value
+    // console.log(props.name)
+    const date = document.getElementById(`date${props.eventName_id}`).value
+    // console.log(date)
+    const amount = document.getElementById(`amount${props.eventName_id}`).value
+    // console.log(amount)
+    const entry = document.getElementById(`entry${props.eventName_id}`).value
+    // console.log(entry)
+    const people = document.getElementById(`people${props.eventName_id}`).value
+    // console.log(people)
+    const eventName_id = props.eventName_id;
+    // console.log(eventName_id)
     const body = {
       name,
       date,
@@ -30,7 +29,6 @@ const TransactionCreater = () => {
       people,
       eventName_id
     }
-    // console.log(body)
     //asyc function to make post request
     console.log('make new transactions')
     const postEvent = async () => {
@@ -53,28 +51,23 @@ const TransactionCreater = () => {
     }
     // console.log(body)
     postEvent()
+    window.location.reload();
   }
   
-
-
-  
- 
   return (
     <div className="transactionCreater">
       <h3 className="addTransact">Add a transaction</h3>
       <div>
         <form className="eventInputForm">
-          {/* <input id="eventName_id" placeholder="Event name">
-          </input> */}
-          <input id="name" placeholder="item name ">
+          <input id={`name${props.eventName_id}`} placeholder="Transaction name ">
           </input>
-          <input id="date" placeholder="day of Event">
+          <input type="date" id={`date${props.eventName_id}`}>
           </input>
-          <input id="amount" placeholder="amount">
+          <input id={`amount${props.eventName_id}`} placeholder="Amount">
           </input>
-          <input id="entry" placeholder="entry">
+          <input id={`entry${props.eventName_id}`} placeholder="Description">
           </input>
-          <input id="people" placeholder="name of peoples">
+          <input id={`people${props.eventName_id}`} placeholder="Names">
           </input>
           <Link to="/">
           <button className="submitbutton" onClick={newTransaction}>Create</button>
@@ -85,4 +78,4 @@ const TransactionCreater = () => {
   )
 }
 
-export default TransactionCreater
+export default TransactionCreator

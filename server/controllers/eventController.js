@@ -13,7 +13,7 @@ eventController.test = (req, res, next) => {
 // creating middelware to get information from out mongodb.  The methods on mongodb are aysynchronous, so we need async/await
 eventController.showEvents = async (req, res, next) => {
   try {
-    console.log('we are inside showEvents');
+    // console.log('we are inside showEvents');
     const allEvents = await Event.aggregate([
       // don't forget to await
       {
@@ -25,7 +25,7 @@ eventController.showEvents = async (req, res, next) => {
         },
       },
     ]);
-    console.log('this is after aggregation', allEvents);
+    // console.log('this is after aggregation', allEvents);
     res.locals.allEvents = allEvents;
     // we need to find all the events in our db schema with .find()
     // const allEvents = await Event.find({}); // old code
@@ -50,7 +50,7 @@ eventController.addEvent = async (req, res, next) => {
     // using object destructing.  Here is what is going on under the hood:
     // const eventName = req.body.eventName;
     // const eventDescription = req.body.eventDescription;
-    console.log('this is the req.body', req.body);
+    // console.log('this is the req.body', req.body);
     // we are creating an event with info from req.body and saving it to eventMaker.  This info gets sent back to the front
     const eventMaker = await Event.create({
       eventName,
@@ -61,7 +61,7 @@ eventController.addEvent = async (req, res, next) => {
       eventName: req.body.eventName, eventDescription: req.body.Description
     */
 
-    console.log('this is the addEvent', eventMaker);
+    // console.log('this is the addEvent', eventMaker);
     res.locals.addEvent = eventMaker;
     return next();
   } catch (err) {
@@ -78,10 +78,10 @@ eventController.addEvent = async (req, res, next) => {
 eventController.deleteEvent = async (req, res, next) => {
   try {
     const { eventName } = req.params;
-    console.log('this is in req.params in deleteEvent', eventName);
+    // console.log('this is in req.params in deleteEvent', eventName);
     // we are deleting the event in the db by sending the eventName object
     const deleteEvent = await Event.deleteOne({ eventName: eventName });
-    console.log('this is after we get deleteEvent from db', deleteEvent);
+    // console.log('this is after we get deleteEvent from db', deleteEvent);
     //deleting all transactions that were associated with the above event
     const deleteTransactions = await Transaction.deleteMany({
       eventName_id: eventName,
@@ -106,7 +106,7 @@ eventController.deleteEvent = async (req, res, next) => {
 eventController.updateEvent = async (req, res, next) => {
   try {
     const { eventName } = req.params;
-    console.log('this is in the req.params in updateEvent', eventName);
+    // console.log('this is in the req.params in updateEvent', eventName);
     // something special here is that if you want to edit/update multiple items, you have to use $set{}
     const updateEvent = await Event.findOneAndUpdate(
       { eventName: req.params.eventName },

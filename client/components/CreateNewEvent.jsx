@@ -42,7 +42,6 @@ this is the onclick function
     postEvent()
   }
   
-  //render(){ // added render
     return (
       <div className="eventCreator">
         <div>
@@ -64,6 +63,5 @@ this is the onclick function
       </div>
     )
   }
- //}
 
 export default CreateNewEvent

@@ -2,7 +2,24 @@ import { ReactDOM } from "react";
 import React, { Component } from "react";
 
 
+
 const Transaction = (props) => {
+  //test to see if unique keys accessible 
+    //assign the unique keys to the specific input box (Starting in 93)
+    //id = {`name${props.uniqueId}`}
+  // console.log(props.uniqueId) - to see uniqueId
+  
+  //set up a update transaction function
+  function updateTransaction(){
+    //grab all the relevant information in each of the specific edit fields
+    const name = document.getElementById(`name${props.uniqueId}`).value;
+    const date = document.getElementById(`date${props.uniqueId}`).value;
+    const amount = document.getElementById(`amount${props.uniqueId}`).value;
+    const entry = document.getElementById(`entry${props.uniqueId}`).value;
+    const people = document.getElementById(`people${props.uniqueId}`).value;
+
+    updateTransaction();
+  }
 
   /* we can either perform the deletes here or in reducers - 
     function = () => {
@@ -14,28 +31,33 @@ const Transaction = (props) => {
     }
   */
 
-  
+  //On delete click:
+//1.  Send delete request to server
+//2.  Change local state to remove the transaction via UseState hook
+//3.  UseEffect must be monitoring state from useState
+//4.  When it notices a change it state, it send fetch request for data which will re-render transactions for that event/
   const deleteTransaction = async () => {
     console.log('deleteTransaction function fired');
-    console.log('hello');
     const settings = {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/JSON'
       },
       //the specific unique id of the transaction from the transaction box
-      body: JSON.stringify(TRANSACTION._id),
+      // body: JSON.stringify(props.name),
     }
-    try {
-      //the specific route and method 
-      const response = await fetch('/api/deleteTrans', settings)
+    try {     //the specific route and method 
+      console.log(`/moreApis/:${props.name}`)
+      const response = await fetch(`/moreApis/${props.name}`, settings)
+      //moreApis/:rubber%20duckies
+      //const correctRoute = props.name
       const data = await response.json()
       console.log(`delete response received: ${response} `)
-      //this is a post request to make a new event, so we dont need to 
-      //do anything with the response
     } catch (err) { 
       console.log('something went wrong when trying to delete transaction - on transaction component')
     }
+    
+    window.location.reload();
   }
 
 
@@ -55,8 +77,8 @@ const Transaction = (props) => {
     eventName_id: String, 
     
 */
-console.log(props.name)
-console.log('hello')
+// console.log(props.name)
+// console.log('hello')
   return (
     <div className="transactionBox" >
         <h4 className="transactTitle">{props.name}</h4>
@@ -70,21 +92,35 @@ console.log('hello')
           As well as having a post request to the Database
       */}
       <button onClick={() => {}}> Complete </button>
-      <button onClick={() => {}}> Edit</button>
-        {/* 
-          <div class = "editFrom-popup" id="editTrans">
-          <form action = "/Update/transId" class="form-container">
-            <label for="name"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required/>
+      {/* <button onClick={() => {}}> Edit</button> */}
+      <button onClick={() => {deleteTransaction()}}> Delete </button>
+        {/* onclick={deleteTransaction} */}
+        {/* //on click the user should be presented a rendered form - set a editState in this.state */}
+          <div className = "editFrom-popup" id="editTrans">
+          <form action = "/Update/transId" className="form-container">
 
-            <label for="date"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required/>
+            <label id = {`name${props.uniqueId}`} htmlFor="Edit"><b>Name</b> </label>
+            <input type="text" defaultValue={props.name} required/>
 
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            <label id = {`date${props.uniqueId}`} htmlFor="Edit"><b>Date</b> </label>
+            <input type="date" defaultValue={props.date}  required/>
+           
+            <label id = {`amount${props.uniqueId}`} htmlFor="Edit"><b>Amount</b> </label>
+            <input type="number" step="any" defaultValue={props.amount}  required/>
+
+            <label id = {`entry${props.uniqueId}`} htmlFor="Edit"><b>Notes</b> </label>
+            <input type="text" defaultValue={props.entry}  required/>
+
+            <label id = {`people${props.uniqueId}`} htmlFor="Edit"><b>People</b> </label>
+            <input type="text" defaultValue={props.people}  required/>
+
+            
+
+            <button type="update" className="btn">Update</button>
+            <button type="button" className="btn cancel" onClick={()=> {}}>Close</button>
           </form>
-          </div> */}
-      <button onClick={() => {}}> Delete </button>
+          </div>
+     
     </div>
     )
 }
