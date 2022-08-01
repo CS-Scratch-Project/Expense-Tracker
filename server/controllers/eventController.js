@@ -121,9 +121,9 @@ eventController.updateEvent = async (req, res, next) => {
     return next();
   } catch (err) {
     return next({
-      log: `eventController.deleteEvent: ERROR: ${err}`,
+      log: `eventController.updateEvent: ERROR: ${err}`,
       status: 400,
-      message: { err: 'Error occurred in eventController.deleteEvent.' },
+      message: { err: 'Error occurred in eventController.updateEvent.' },
     });
   }
 };
