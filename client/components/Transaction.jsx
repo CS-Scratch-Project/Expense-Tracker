@@ -2,7 +2,7 @@ import { ReactDOM } from "react";
 import React, { Component } from "react";
 
 
-const Transaction = () => {
+const Transaction = (props) => {
 
   /* we can either perform the deletes here or in reducers - 
     function = () => {
@@ -55,15 +55,17 @@ const Transaction = () => {
     eventName_id: String, 
     
 */
+console.log(props.name)
+console.log('hello')
   return (
     <div className="transactionBox" >
-        <h4>This is a transaction</h4>
+        <h4>{props.name}</h4>
 
-      <div><label htmlFor = 'name'>Name: </label><span> props.CHANGE.name </span></div>
-      <div><label htmlFor = 'date'>Date: </label><span> props.CHANGE.date </span></div>
-      <div><label htmlFor = 'amount'>Amount: </label><span> props.CHANGE.amount </span></div>
-      <div><label htmlFor = 'entry'>Notes: </label><span> props.CHANGE.entry </span></div>
-      <div><label htmlFor = 'people'>People: </label><span> props.CHANGE.people </span></div> 
+      {/* <div><label htmlFor = 'name'>Name: </label><span> {props.name} </span></div> */}
+      <div><label htmlFor = 'date'>Date: </label><span> {props.date} </span></div>
+      <div><label htmlFor = 'amount'>Amount: </label><span> {props.amount} </span></div>
+      <div><label htmlFor = 'entry'>Notes: </label><span> {props.entry} </span></div>
+      <div><label htmlFor = 'people'>People: </label><span> {props.people} </span></div> 
       {/* Here we will need to have a function that calls for an useReducer function to update state
           As well as having a post request to the Database
       */}

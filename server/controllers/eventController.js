@@ -13,12 +13,26 @@ eventController.test = (req, res, next) => {
 // creating middelware to get information from out mongodb.  The methods on mongodb are aysynchronous, so we need async/await
 eventController.showEvents = async (req, res, next) => {
   try {
-    // we need to find all the events in our db schema with .find()
-    const allEvents = await Event.find({});
-    //console.log('this is in allEvents', allEvents);
-    console.log('showevents middleware');
-    // send this information back to the front end where it gets .json'd
+    console.log('we are inside showEvents');
+    const allEvents = await Event.aggregate([
+      // don't forget to await
+      {
+        $lookup: {
+          from: 'transactions', // this is what it is under the hood
+          localField: 'eventName',
+          foreignField: 'eventName_id',
+          as: 'eventsAndTransact',
+        },
+      },
+    ]);
+    console.log('this is after aggregation', allEvents);
     res.locals.allEvents = allEvents;
+    // we need to find all the events in our db schema with .find()
+    // const allEvents = await Event.find({}); // old code
+    // //console.log('this is in allEvents', allEvents);
+    // console.log('showevents middleware'); // old code
+    // // send this information back to the front end where it gets .json'd
+    // res.locals.allEvents = allEvents; // old code
     return next();
   } catch (err) {
     return next({
@@ -107,9 +121,9 @@ eventController.updateEvent = async (req, res, next) => {
     return next();
   } catch (err) {
     return next({
-      log: `eventController.deleteEvent: ERROR: ${err}`,
+      log: `eventController.updateEvent: ERROR: ${err}`,
       status: 400,
-      message: { err: 'Error occurred in eventController.deleteEvent.' },
+      message: { err: 'Error occurred in eventController.updateEvent.' },
     });
   }
 };

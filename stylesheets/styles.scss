@@ -1,15 +1,24 @@
 * {
   box-sizing: border-box;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color:rgb(243, 90, 116);
 }
 body {
-  background-color: rgba(227, 227, 227, 0.671);
+  background-color: rgba(188, 188, 188, 0.671);
 }
 
 h1, h3 {
   display: flex;
   justify-content: center;
+}
+
+button {
+  background-color: rgba(124, 151, 255, 0.671);
+  border-radius: 10px;
+  margin: 10px;
+}
+
+input {
+  border-radius: 8px;
 }
 
 .navlist {
@@ -24,7 +33,8 @@ h1, h3 {
 }
 
 .pendingTransactions {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .eventCreatorContainer {
@@ -43,7 +53,11 @@ h1, h3 {
 }
 
 .event {
-  background-color: rgba(71, 71, 71, 0.671);
+  background-color: rgba(255, 255, 255, 0.671);
+  margin: 10px;
+  margin-top: 30px;
+  border-radius: 20px;
+  border: 2px solid rgb(165, 185, 252);
 }
 
 .transaction {
@@ -52,6 +66,7 @@ h1, h3 {
 
 .transactionBox {
   background-color:rgba(39, 37, 37, 0.671);
- 
+  margin: 3%;
+  border-radius: 10px;
 
 }

@@ -9,6 +9,7 @@ const app = express();
 
 // path to take us to the router
 const apiRouter = require('./routes/api.js');
+const moreApis = require('./routes/moreApis.js');
 
 // the port we are listening to down at the bottom
 const PORT = 3000;
@@ -24,7 +25,10 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // used to take us to our routers with endpoint, api
 app.use('/api', apiRouter);
+app.use('/moreapis', moreApis);
+
 console.log('testing server');
+
 // establing our 404, can't find requested webpage
 app.use('/*', (req, res) =>
   res.status(404).send('This is not the page you are looking for')
