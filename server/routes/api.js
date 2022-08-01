@@ -11,7 +11,7 @@ const router = express.Router();
 // need a  get request to render our current events at our / endpoint
 // sending this info from to fetch on the front end and go to the middleware (and the db), which gets back to the send request
 router.get(
-  '/',
+  '/getevents',
   //eventController.test,
   eventController.showEvents,
   (req, res) => {
