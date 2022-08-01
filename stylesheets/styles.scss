@@ -1,9 +1,15 @@
+$primary-color: rgb(209, 224, 255);
+$white: white;
+$secondary-color: rgb(233, 233, 233);
+
 * {
   box-sizing: border-box;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 body {
-  background-color: rgba(188, 188, 188, 0.671);
+  background-color: $secondary-color;
+  margin: 0;
 }
 
 h1, h3 {
@@ -12,9 +18,10 @@ h1, h3 {
 }
 
 button {
-  background-color: rgba(124, 151, 255, 0.671);
+  background-color: $white;
   border-radius: 10px;
   margin: 10px;
+  font: $primary-color;
 }
 
 input {
@@ -25,10 +32,15 @@ input {
   display: flex;
   list-style: none;
   justify-content: flex-start;
-  background-color: rgba(124, 121, 121, 0.671);
+  background-color: $primary-color;
+  margin-top: 0;
   li {
     margin: 10px;
-    margin-left: 15px;
+    margin-left: 45px;
+  }
+  a {
+    color: black;
+    text-decoration: none;
   }
 }
 
@@ -41,7 +53,7 @@ input {
   // display: flex;
   // justify-content: center;
   display: inline-block;
-  background-color: white;
+  background-color: $secondary-color;
   vertical-align: top;
   // margin: auto;
 }
@@ -54,10 +66,10 @@ input {
 
 .event {
   background-color: rgba(255, 255, 255, 0.671);
-  margin: 10px;
+  margin: 30px;
   margin-top: 30px;
   border-radius: 20px;
-  border: 2px solid rgb(165, 185, 252);
+  // border: 2px solid rgb(165, 185, 252);
 }
 
 .transaction {
@@ -65,8 +77,14 @@ input {
 }
 
 .transactionBox {
-  background-color:rgba(39, 37, 37, 0.671);
-  margin: 3%;
+  background-color:$primary-color;
+  margin: 3% 6% ;
   border-radius: 10px;
+  border: 1px solid $secondary-color;
 
+}
+
+.transactionCreater {
+  background-color: $secondary-color;
+  margin: 3% 6%;
 }
