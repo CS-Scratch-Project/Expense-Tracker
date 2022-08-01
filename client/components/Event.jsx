@@ -29,7 +29,7 @@ class Event extends Component {
     // console.log(this.props.eventSpecificTransactions)
     const transactionList = this.props.eventSpecificTransactions.map(
       (transactionObj, i) => {
-        console.log(transactionObj);
+        // console.log(transactionObj);
           return (
             <Transaction
               name={transactionObj.name}
@@ -44,16 +44,22 @@ class Event extends Component {
 
       }
     );
-    }
-    // console.log(this.props.eventDescription);
     return (
       <div className='event'>
         <h4>{this.props.eventName}</h4>
         <p>{this.props.eventDescription}</p>
         <TransactionCreater />
-        <Transaction />
-        <Transaction />
-        {/* {transactionList} */}
+        {transactionList.reverse()}
+      </div>
+    );
+    }
+    return (
+      <div className='event'>
+        <h4>{this.props.eventName}</h4>
+        <p>{this.props.eventDescription}</p>
+        <TransactionCreater />
+        {/* <Transaction />
+        <Transaction /> */}
       </div>
     );
   }
