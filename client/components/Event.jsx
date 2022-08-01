@@ -16,6 +16,8 @@ import TransactionCreater from './CreateNewTransaction.jsx';
 //   )
 // }
 
+// date = {transactionObj.date} amount = {transactionObj.amount} entry= {transactionObj.entry} transactionComplete = {transactionObj.transactionComplete} people = {transactionObj.people} eventName_id = {transactionObj.eventName_id}
+
 class Event extends Component {
   constructor(props) {
     super(props);
