@@ -23,37 +23,11 @@ class Event extends Component {
     super(props);
   }
 
-  render() {
-    // const [transactions, setTransactions] = useState([]);
-    // useEffect(() => {
-    //   const getData = async () => {
-    //     try {
-    //       const response = await fetch('/api'); //figure out the end route
-    //       const data = await response.json();
-    //       setTransactions(data);
-    //     } catch (err) {
-    //       console.log(`something went wrong: ${err}`);
-    //     }
-    //   };
-    //   getData();
-    // }, []);
+  //const transactionList = []
 
-    // const transactionList = transactions.map((transactionObj, i) => {
-    //   return (
-    //     <Transaction
-    //       key={transactionObj.name}
-    //       name={transactionObj.name}
-    //       date={transactionObj.date}
-    //       amount={transactionObj.amount}
-    //       entry={transactionObj.entry}
-    //       transactionComplete={transactionObj.transactionComplete}
-    //       people={transactionObj.people}
-    //       eventName_id={transactionObj.eventName_id}
-    //     />
-    //   );
-    // });
-    console.log(this.props.eventName);
-    console.log(this.props.eventDescription);
+  render() {
+    // console.log(this.props.eventName);
+    // console.log(this.props.eventDescription);
     return (
       <div className='event'>
         <h4>{this.props.eventName}</h4>

@@ -1,10 +1,9 @@
 * {
   box-sizing: border-box;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color:rgb(243, 90, 116);
 }
 body {
-  background-color: rgba(227, 227, 227, 0.671);
+  background-color: rgba(188, 188, 188, 0.671);
 }
 
 h1, h3 {
@@ -34,7 +33,6 @@ input {
 }
 
 .pendingTransactions {
-  background-color: white;
   display: flex;
   flex-direction: column;
 }
@@ -55,7 +53,11 @@ input {
 }
 
 .event {
-  background-color: rgba(71, 71, 71, 0.671);
+  background-color: rgba(255, 255, 255, 0.671);
+  margin: 10px;
+  margin-top: 30px;
+  border-radius: 20px;
+  border: 2px solid rgb(165, 185, 252);
 }
 
 .transaction {
@@ -64,6 +66,7 @@ input {
 
 .transactionBox {
   background-color:rgba(39, 37, 37, 0.671);
- 
+  margin: 3%;
+  border-radius: 10px;
 
 }
