@@ -48,7 +48,7 @@ class Event extends Component {
     );
     return (
       <div className='event'>
-        <h4>{this.props.eventName}</h4>
+        <h4 className='eventName'>{this.props.eventName}</h4>
         <p>{this.props.eventDescription}</p>
         <TransactionCreater />
         {transactionList.reverse()}

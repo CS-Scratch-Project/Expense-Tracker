@@ -61,7 +61,7 @@ const TransactionCreater = () => {
  
   return (
     <div className="transactionCreater">
-      <h1>New Transaction Creator</h1>
+      <h3 className="addTransact">Add a transaction</h3>
       <div>
         <form className="eventInputForm">
           {/* <input id="eventName_id" placeholder="Event name">
@@ -77,7 +77,7 @@ const TransactionCreater = () => {
           <input id="people" placeholder="name of peoples">
           </input>
           <Link to="/">
-          <button id="submitEvent" onClick={newTransaction}>Create</button>
+          <button className="submitbutton" onClick={newTransaction}>Create</button>
           </Link>
         </form>
       </div>
