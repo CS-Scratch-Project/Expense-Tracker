@@ -50,12 +50,18 @@ const PendingTransactions = () => {
   //change the state
   // console.log(events[0].eventsAndTransac);
   // console.log(events[0])
+
+  // this is to dynamically render events and have access to eventsAndTransact propety
   const eventList = events.map((eventObj, i) => {
     //console.log(eventObj.eventName);
     // console.log(eventObj.eventsAndTransact[0])
     // console.log(eventObj.eventsAndTransact[1])
+
+    // this empty array is the specific transactions associated with that event
+    // this will later be prop drilled down... back to event.jsx
     const eventSpecificTransactions = [];
 
+    // per event object, we are checking if there are any transactions.  IF there is something, we will loop through the transactions and push all the transactions that are associated with that event
     if (eventObj.eventsAndTransact[0]) {
       for (let i = 0; i < eventObj.eventsAndTransact.length; i++) {
         eventSpecificTransactions.push(eventObj.eventsAndTransact[i]);

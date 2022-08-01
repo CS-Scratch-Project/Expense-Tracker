@@ -10,13 +10,13 @@ transactController.test = (req, res, next) => {
   return next();
 };
 
-// creating middelware to get information from out mongodb.  The methods on mongodb are aysynchronous, so we need async/await
+// creating middleware to get information from out mongodb.  The methods on mongodb are asynchronous, so we need async/await
 transactController.showTransacts = async (req, res, next) => {
   try {
     // we need to find all the transactions for each event in our db schema with .find()
     const allTransacts = await Transaction.find({});
     //console.log('this is in allTransacts', allTransacts);
-    console.log('showTransacts middleware', allTransacts);
+    // console.log('showTransacts middleware', allTransacts);
     // send this information back to the front end where it gets .json'd
     res.locals.allTransacts = allTransacts;
     return next();
@@ -24,7 +24,7 @@ transactController.showTransacts = async (req, res, next) => {
     return next({
       log: `transactController.showTransacts: ERROR: ${err}`,
       status: 400,
-      message: { err: 'Error occurred in transactContoller.showTransacts.' },
+      message: { err: 'Error occurred in transactController.showTransacts.' },
     });
   }
 };
@@ -69,19 +69,20 @@ transactController.addTransact = async (req, res, next) => {
 
 transactController.deleteTransact = async (req, res, next) => {
   try {
+    console.log('testing inside delete transact');
     console.log(
-      'this is in req.params.name in deleteTransact',
-      req.params.name
+      'this is in req.params in deleteTransact',
+      req.params
     );
     const { name } = req.params;
     // we are deleting the event in the db by sending the name object for transactions
     const deleteTransact = await Transaction.deleteOne({ name });
-    console.log('this is after we get deleteEvent from db', deleteTransact);
+    // console.log('this is after we get deleteEvent from db', deleteTransact);
     //deleting all transactions that were associated with the above event
-    console.log(
-      'this is after we delete the associated transactions',
-      deleteTransact
-    );
+    // console.log(
+    //   'this is after we delete the associated transactions',
+    //   deleteTransact
+    // );
     return next();
   } catch (err) {
     return next({
@@ -94,11 +95,11 @@ transactController.deleteTransact = async (req, res, next) => {
 
 transactController.updateTransact = async (req, res, next) => {
   try {
-    console.log(req.params.name);
+    // console.log(req.params.name);
     const { name } = req.params;
-    console.log('this is in the req.params in updateTransact', name);
+    // console.log('this is in the req.params in updateTransact', name);
     // something special here is that if you want to edit/update multiple items, you have to use $set{}
-    console.log(/*'this is the req.body in updateTransact',*/ req.body);
+    // console.log(/*'this is the req.body in updateTransact',*/ req.body);
     const updateTransact = await Transaction.findOneAndUpdate(
       { name: req.params.name },
       {
@@ -113,7 +114,7 @@ transactController.updateTransact = async (req, res, next) => {
         },
       }
     );
-    console.log('this is after findOneAndUpdate', updateTransact)
+    // console.log('this is after findOneAndUpdate', updateTransact)
     res.locals.updateTransact = updateTransact;
     return next();
   } catch (err) {
