@@ -27,12 +27,12 @@ const PendingTransactions = () => {
       const getData = async () =>  {
         try {
           //This endpoint has not been set yet
-          const response = await fetch('/api')
+          const response = await fetch('/api/getevents')
           //once Katie sets up the backend ^^^ this endpoint will need
           //to be updated
           const data = await response.json()
           //console.log(data)
-          //console.log(data)
+          console.log(data)
           setEvents(data)
           //wheneverwe use setEvents to change the state,
           //that will trigger React to re-render the component
@@ -43,7 +43,7 @@ const PendingTransactions = () => {
     getData()
     //window.location.reload()  re-render the page
   }, [])
-  //console.log(events)
+  console.log(events)
     //Events should now contain all of the events 
     //and transactions from our database
     //this useState hook can be used as many times as we want to

@@ -41,7 +41,11 @@ const transactionSchema = new Schema({
   entry: String,
   transactionComplete: { type: Boolean, required: true },
   people: String,
-  eventName_id: String,
+  eventName_id: {
+    type: String,
+    unique: true,
+    required: true,
+  },
 });
 
 const Transaction = mongoose.model('Transaction', transactionSchema);

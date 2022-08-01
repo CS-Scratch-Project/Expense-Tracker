@@ -32,29 +32,37 @@ transactController.showTransacts = async (req, res, next) => {
 // need middleware for post request- to get information from the user and addEvent.  This information gets saved to req.body
 transactController.addTransact = async (req, res, next) => {
   try {
-    const { eventName, eventDescription } = req.body;
-    // using object destructing.  Here is what is going on under the hood:
-    // const eventName = req.body.eventName;
-    // const eventDescription = req.body.eventDescription;
+    const {
+      name,
+      date,
+      amount,
+      entry,
+      transactionComplete,
+      people,
+      eventName_id,
+    } = req.body;
+    // using object destructing.
+
     console.log('this is the req.body', req.body);
-    // we are creating an event with info from req.body and saving it to eventMaker.  This info gets sent back to the front
-    const eventMaker = await Event.create({
-      eventName,
-      eventDescription,
+    // we are creating an transaction with info from req.body and saving it to transactionMaker.  This info gets sent back to the front
+    const transactionMaker = await Transaction.create({
+      name,
+      date,
+      amount,
+      entry,
+      transactionComplete,
+      people,
+      eventName_id,
     });
 
-    /* const eventMaker = await models.Event.create({
-      eventName: req.body.eventName, eventDescription: req.body.Description
-    */
-
-    console.log('this is the addEvent', eventMaker);
-    res.locals.addEvent = eventMaker;
+    console.log('this is the addTransact', transactionMaker);
+    res.locals.transactionMaker = transactionMaker;
     return next();
   } catch (err) {
     return next({
-      log: `eventController.addEvent: ERROR: ${err}`,
+      log: `transactController.addTransact: ERROR: ${err}`,
       status: 400,
-      message: { err: 'Error occurred in eventController.addEvent.' },
+      message: { err: 'Error occurred in transactController.addTransact.' },
     });
   }
 };

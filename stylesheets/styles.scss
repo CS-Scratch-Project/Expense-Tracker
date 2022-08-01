@@ -12,6 +12,16 @@ h1, h3 {
   justify-content: center;
 }
 
+button {
+  background-color: rgba(124, 151, 255, 0.671);
+  border-radius: 10px;
+  margin: 10px;
+}
+
+input {
+  border-radius: 8px;
+}
+
 .navlist {
   display: flex;
   list-style: none;
@@ -25,6 +35,8 @@ h1, h3 {
 
 .pendingTransactions {
   background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .eventCreatorContainer {

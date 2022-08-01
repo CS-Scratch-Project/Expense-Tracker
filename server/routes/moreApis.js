@@ -2,7 +2,7 @@
 const express = require('express');
 
 // bringing in our middleware
-const transactController = require('../controllers/transaccontroller');
+const transactController = require('../controllers/transactcontroller');
 
 // bringing in our moreRouter for our transactRouter by invoking Router() and bringing in our router- purely for organization
 const moreRouter = express.Router();
@@ -12,8 +12,14 @@ const moreRouter = express.Router();
 moreRouter.get(
   '/',
   //transactController.test,
-  transactController.showEvents,
+  transactController.showTransacts,
   (req, res) => {
     return res.status(200).json(res.locals.allTransacts);
   }
 );
+
+moreRouter.post('/addtransact', transactController.addTransact, (req, res) => {
+  return res.status(200).json(res.locals.transactionMaker);
+});
+
+module.exports = moreRouter;
