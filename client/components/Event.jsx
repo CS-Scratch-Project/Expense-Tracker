@@ -23,10 +23,39 @@ import TransactionCreator from './CreateNewTransaction.jsx';
 class Event extends Component {
   constructor(props) {
     super(props);
-    // this.deleteEvent=this.deleteEvent.bind(this);
-    this.state = {
-      eventName: '',
-      eventDescription: '',
+  }
+
+  //const transactionList = []
+
+  render() {
+    // console.log(this.props.eventSpecificTransactions);
+    if(this.props.eventSpecificTransactions[0]){
+    // console.log(this.props.eventSpecificTransactions)
+    const transactionList = this.props.eventSpecificTransactions.map(
+      (transactionObj, i) => {
+        // console.log(transactionObj);
+          return (
+            <Transaction
+              name={transactionObj.name}
+              date={transactionObj.date}
+              amount={transactionObj.amount}
+              entry={transactionObj.entry}
+              transactionComplete={transactionObj.transactionComplete}
+              people={transactionObj.people}
+              eventName_id={transactionObj.eventName_id}
+            />
+          );
+
+      }
+    );
+    return (
+      <div className='event'>
+        <h4 className='eventName'>{this.props.eventName}</h4>
+        <p>{this.props.eventDescription}</p>
+        <TransactionCreater />
+        {transactionList.reverse()}
+      </div>
+    );
     }
     
   }
