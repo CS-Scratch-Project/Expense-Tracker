@@ -11,8 +11,6 @@ class CompletedTransactions extends Component {
     return(
       <div className="CompletedTransactions">
         <h1>Completed Transactions</h1>
-        <Event />
-        <Event />
       </div>
     );
   }

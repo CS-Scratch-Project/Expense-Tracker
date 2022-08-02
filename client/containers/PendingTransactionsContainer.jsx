@@ -83,7 +83,7 @@ const PendingTransactions = () => {
   eventList.reverse();
   return (
     <div className='pendingTransactions'>
-      <h2>Pending Transactions</h2>
+      <h2>Transactions</h2>
       {/* this is where all the events will render */}
       {eventList}
       {/* each transaction will in turn render within the event */}

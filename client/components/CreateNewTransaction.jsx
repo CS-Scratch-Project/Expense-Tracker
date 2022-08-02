@@ -55,7 +55,7 @@ const TransactionCreator = (props) => {
   }
   
   return (
-    <div className="transactionCreater">
+    <div className="transactionCreator">
       <h3 className="addTransact">Add a transaction</h3>
       <div>
         <form className="eventInputForm">
