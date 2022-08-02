@@ -18,10 +18,19 @@ import TransactionCreator from './CreateNewTransaction.jsx';
 
 // date = {transactionObj.date} amount = {transactionObj.amount} entry= {transactionObj.entry} transactionComplete = {transactionObj.transactionComplete} people = {transactionObj.people} eventName_id = {transactionObj.eventName_id}
 
+// this is a class component
+
 class Event extends Component {
   constructor(props) {
     super(props);
+    // this.deleteEvent=this.deleteEvent.bind(this);
+    this.state = {
+      eventName: '',
+      eventDescription: '',
+    }
+    
   }
+  
 
   // const [state, setState] = useState([])
 
@@ -33,9 +42,24 @@ class Event extends Component {
   //       "Content-Type": "Application/JSON",
   //     }, 
   //   }), []});
-
-
-
+  async deleteEvent() {
+    const settings = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/JSON'
+      },
+    }
+    try {     //the specific route and method 
+      console.log('this is in deleteEvent', this.props.eventName);
+      const response = await fetch(`/api/${this.props.eventName}`, settings)
+      //i give up . it works.
+      const data = await response.json()
+      console.log(`delete response received: ${data} `)
+    } catch (err) { 
+      console.log('something went wrong when trying to delete transaction - on transaction component')
+    }
+    window.location.reload();
+  }
   render() {
     //console.log(this.props);
     // console.log(this.props.eventSpecificTransactions);
@@ -78,6 +102,7 @@ class Event extends Component {
             className="deleteEventButton"
             onClick={() => {
               this.deleteEvent();
+              // nerf this
             }}>
             Delete Event
         </button>
@@ -93,9 +118,7 @@ class Event extends Component {
       <button
         type="deleteEventButton"
         className="deleteEventButton"
-        onClick={() => {
-          this.deleteEvent();
-        }}>
+        onClick={() => {this.deleteEvent()}}>
         Delete Event
       </button>
     </div>

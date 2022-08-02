@@ -87,6 +87,7 @@ input {
   .addTransact {
     display: flex;
     justify-content: flex-start;
+
   }
   .eventName {
     display: flex;
@@ -95,6 +96,10 @@ input {
   p {
     margin: 0 6%;
   }
+}
+
+h3.addTransact {
+font-size: small;
 }
 
 .transaction {
@@ -120,6 +125,6 @@ input {
   }
   h3 {
     padding-top: 2%;
-    padding-left: 2%;
+    padding-left: 5%;
   }
 }

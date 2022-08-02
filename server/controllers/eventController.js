@@ -78,6 +78,7 @@ eventController.addEvent = async (req, res, next) => {
 eventController.deleteEvent = async (req, res, next) => {
   try {
     const { eventName } = req.params;
+    console.log('this is in deleteEvent', req.params)
     // console.log('this is in req.params in deleteEvent', eventName);
     // we are deleting the event in the db by sending the eventName object
     const deleteEvent = await Event.deleteOne({ eventName: eventName });

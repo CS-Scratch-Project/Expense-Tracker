@@ -1,6 +1,7 @@
 import { ReactDOM } from "react";
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom"
+// this is a functional component and we have to use hooks if we want to bring in hooks.  Can't manage state without hooks.
 
 
 const Transaction = (props) => {
@@ -8,17 +9,52 @@ const Transaction = (props) => {
     //assign the unique keys to the specific input box (Starting in 93)
     //id = {`name${props.uniqueId}`}
   // console.log(props.uniqueId) - to see uniqueId
-  
+
+
+
   //set up a update transaction function
-  function updateTransaction(){
+  function refreshTransaction(){
+    console.log(props.transactionComplete);
     //grab all the relevant information in each of the specific edit fields
     const name = document.getElementById(`name${props.uniqueId}`).value;
     const date = document.getElementById(`date${props.uniqueId}`).value;
     const amount = document.getElementById(`amount${props.uniqueId}`).value;
+    const transactionComplete = props.transactionComplete;
     const entry = document.getElementById(`entry${props.uniqueId}`).value;
     const people = document.getElementById(`people${props.uniqueId}`).value;
 
+    const body = {
+      name,
+      date,
+      amount,
+      transactionComplete,
+      entry,
+      people
+    }
+
+    const updateTransaction = async () => {
+      const settings = {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/JSON'
+        },
+        body: JSON.stringify(body)
+      }
+      try {
+        console.log('this is in updateTransaction', props.name);
+        //console.log('this is before the fetch request');
+        const response = await fetch(`/moreApis/${props.name}`, settings)
+        //console.log('this is after the fetch request');
+        const data = await response.json()
+        //console.log(data)
+        //this is a post request to make a new event, so we dont need to 
+        //do anything with the response
+      } catch (err) { 
+        console.log('something went wrong with the Update New Event post request')
+      }
+    }
     updateTransaction();
+    window.location.reload();
   }
 
   /* we can either perform the deletes here or in reducers - 
@@ -91,7 +127,7 @@ const Transaction = (props) => {
       {/* Here we will need to have a function that calls for an useReducer function to update state
           As well as having a post request to the Database
       */}
-      <button onClick={() => {}}> Complete </button>
+      {/* <button onClick={() => {}}> Complete </button> */}
       {/* <button onClick={() => {}}> Edit</button> */}
       <button onClick={() => {deleteTransaction()}}> Delete </button>
         {/* onclick={deleteTransaction} */}
@@ -115,9 +151,9 @@ const Transaction = (props) => {
             <input type="text" defaultValue={props.people}  required/>
 
             
-
-            <button type="update" className="btn">Update</button>
-            <button type="button" className="btn cancel" onClick={()=> {}}>Close</button>
+            <Link to="/">
+              <button type="update" className="btn" onClick={() => {refreshTransaction()}}>Update</button>
+            </Link>
           </form>
           </div>
      
