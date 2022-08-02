@@ -62,3 +62,5 @@ completed: false,
 ],
 },
 ];
+
+Please add a secrets.js file to add the URI to the database.
